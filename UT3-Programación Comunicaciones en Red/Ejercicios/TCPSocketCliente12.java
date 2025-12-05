@@ -2,16 +2,15 @@ package Ejercicios;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.net.InetAddress;
 import java.net.Socket;
 
 public class TCPSocketCliente12 {
     public static void main(String[] args) throws Exception {
-		InetAddress ipCliente = InetAddress.getByName("192.168.204.129");
+		String host = "192.168.204.129";
 		int Puerto = 6666;//puerto remoto
 		
 		System.out.println("PROGRAMA CLIENTE 2 INICIADO....");
-		Socket Cliente = new Socket(ipCliente, Puerto);
+		Socket Cliente = new Socket(host, Puerto);
 
         // Creación flujo de entrada desde el servidor al cliente 1
 		DataInputStream flujoEntrada = new DataInputStream(Cliente.getInputStream());
@@ -42,5 +41,5 @@ public class TCPSocketCliente12 {
 		flujoEntrada.close();
 		flujoSalida.close();
 		Cliente.close();
-	}// main
+	}
 }

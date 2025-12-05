@@ -2,7 +2,6 @@ package Ejercicios;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -11,11 +10,11 @@ public class TCPSocketCliente11 {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-		InetAddress ipCliente = InetAddress.getByName("192.168.204.129");
+		String host = "192.168.204.129";
 		int Puerto = 6666;//puerto remoto
 		
 		System.out.println("PROGRAMA CLIENTE 1 INICIADO....");
-		Socket Cliente = new Socket(ipCliente, Puerto);
+		Socket Cliente = new Socket(host, Puerto);
 
 		// Creación flujo de salida hacia el servidor
 		DataOutputStream flujoSalida = new DataOutputStream(Cliente.getOutputStream());
@@ -37,5 +36,5 @@ public class TCPSocketCliente11 {
 		flujoEntrada.close();
 		flujoSalida.close();
 		Cliente.close();
-	}// main
+	}
 }

@@ -17,13 +17,14 @@ public class TCPSocketServidor1 {
 
         System.out.println("Servidor escuchando en " + ipServidor.getHostAddress() + ":" + numeroPuerto);
 		
-		// Creación de las conexiones al cliente 1 y 2
+		// Creación de la conexion al cliente 1
 		Socket cliente1Conectado = servidor.accept();
         System.out.println("Cliente1 conectado desde: " 
             + cliente1Conectado.getInetAddress().getHostAddress() + ":" + cliente1Conectado.getPort());
 
+		// Creación de la conexion al cliente 2
 		Socket cliente2Conectado = servidor.accept();
-        System.out.println("Cliente1 conectado desde: " 
+        System.out.println("Cliente2 conectado desde: " 
             + cliente2Conectado.getInetAddress().getHostAddress() + ":" + cliente2Conectado.getPort());
 
 		// Creación flujo de entrada desde el servidor al cliente 1
@@ -34,7 +35,7 @@ public class TCPSocketServidor1 {
 		//Recibiendo datos del cliente 1
 		int numero = flujoEntrada1.readInt();
 		System.out.println("Recibiendo del cliente 1 el número: " + numero);
-        
+
 		// Creación flujo de salida hacia el cliente 2 desde el servidor
 		OutputStream salida2 = null;
 		salida2 = cliente2Conectado.getOutputStream();
